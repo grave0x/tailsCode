@@ -10,6 +10,9 @@ public struct HostAddress: Equatable, Sendable {
     public static let openCodePort = 4096
     public static let claudeCodePort = 4098
     public static let ompPort = 4099
+    public static let piPort = 4100
+    public static let primeAgentPort = 4101
+    public static let fxPort = 4102
 
     public let url: URL
     /// True when the app supplied the port rather than the user. The other
@@ -36,6 +39,9 @@ public struct HostAddress: Equatable, Sendable {
         case .openCode: return openCodePort
         case .claudeCode: return claudeCodePort
         case .omp: return ompPort
+        case .pi: return piPort
+        case .primeAgent: return primeAgentPort
+        case .fx: return fxPort
         }
     }
 
@@ -77,8 +83,10 @@ public struct HostAddress: Equatable, Sendable {
     /// port, the other agent's default is the single most likely correction.
     public func probeCandidates() -> [URL] {
         guard portWasInferred, let port = url.port else { return [url] }
-        let alternates = [Self.openCodePort, Self.claudeCodePort, Self.ompPort]
-            .filter { $0 != port }
+        let alternates = [
+            Self.openCodePort, Self.claudeCodePort, Self.ompPort, Self.piPort,
+            Self.primeAgentPort, Self.fxPort,
+        ].filter { $0 != port }
         var candidates: [URL] = [url]
         for candidate in alternates {
             guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false)

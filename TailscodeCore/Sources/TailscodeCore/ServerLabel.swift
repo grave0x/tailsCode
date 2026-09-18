@@ -11,6 +11,9 @@ public enum ServerLabel {
         case .openCode: return "opencode"
         case .claudeCode: return "Claude Code"
         case .omp: return "Oh My Pi"
+        case .pi: return "pi"
+        case .primeAgent: return "Prime Agent"
+        case .fx: return "fx"
         }
     }
 

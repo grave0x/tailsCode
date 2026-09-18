@@ -32,6 +32,15 @@ public enum BridgeInstall {
         case .omp:
             return
                 "curl -fsSL https://raw.githubusercontent.com/guitaripod/omp-bridge/master/install.sh | OMP_REPO=https://github.com/guitaripod/omp-bridge OMP_PASSWORD=\(password) bash"
+        case .pi:
+            return
+                "curl -fsSL https://raw.githubusercontent.com/guitaripod/pi-bridge/master/install.sh | PI_REPO=https://github.com/guitaripod/pi-bridge PI_PASSWORD=\(password) bash"
+        case .primeAgent:
+            return
+                "curl -fsSL https://raw.githubusercontent.com/guitaripod/prime-agent-bridge/master/install.sh | PRIME_AGENT_REPO=https://github.com/guitaripod/prime-agent-bridge PRIME_AGENT_PASSWORD=\(password) bash"
+        case .fx:
+            return
+                "curl -fsSL https://raw.githubusercontent.com/guitaripod/fx-bridge/master/install.sh | FX_REPO=https://github.com/guitaripod/fx-bridge FX_PASSWORD=\(password) bash"
         }
     }
 

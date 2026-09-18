@@ -24,6 +24,9 @@ public enum ProbeSweep {
         case .openCode: return "opencode"
         case .claudeCode: return "claude"
         case .omp: return "omp"
+        case .pi: return "pi"
+        case .primeAgent: return "prime-agent"
+        case .fx: return "fx"
         }
     }
 
@@ -45,7 +48,9 @@ public enum ProbeSweep {
             policy: policy, retryUnreachable: retryUnreachable)
         guard case .authFailed = outcome else { return outcome }
         var lastOutcome = ConnectionProbe.Outcome.authFailed
-        for other in [AgentType.claudeCode, .omp, .openCode] where other != backend {
+        for other in [
+            AgentType.claudeCode, .omp, .openCode, .pi, .primeAgent, .fx,
+        ] where other != backend {
             let outcome = await ConnectionProbe().probe(
                 baseURL: baseURL,
                 credentials: BasicCredentials(username: username(for: other), password: password),

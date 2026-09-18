@@ -81,6 +81,15 @@ enum ParityManifest {
         case .ompServer:
             return .gap(
                 "the Kit probes and streams against omp-bridge and the shared Core names it, but no setup surface offers Oh My Pi yet — the choice cards, segments or radios still name two agents, so an omp-bridge server can only be reached by editing a profile's backend directly")
+        case .piServer:
+            return .gap(
+                "the Kit probes and streams against the pi bridge protocol and the shared Core names it, but no setup surface offers pi yet — the choice cards, segments or radios still name two agents, so a pi-bridge server can only be reached by editing a profile's backend directly")
+        case .primeAgentServer:
+            return .gap(
+                "the Kit probes and streams against the prime-agent bridge protocol and the shared Core names it, but no setup surface offers Prime Agent yet — the choice cards, segments or radios still name two agents, so a prime-agent-bridge server can only be reached by editing a profile's backend directly")
+        case .fxServer:
+            return .gap(
+                "the Kit probes and streams against the fx bridge protocol and the shared Core names it, but no setup surface offers fx yet — the choice cards, segments or radios still name two agents, so an fx-bridge server can only be reached by editing a profile's backend directly")
         case .tailnetDiscovery: return .implemented("DiscoveryViewController")
         case .connectDiagnosis: return .implemented("ConnectDiagnosis")
         case .serverSignIn: return .implemented("ServerSignInViewController")

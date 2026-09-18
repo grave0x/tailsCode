@@ -107,6 +107,9 @@ public enum AppCapability: String, CaseIterable, Sendable {
     case serverManagement
     case tailnetDiscovery
     case ompServer
+    case piServer
+    case primeAgentServer
+    case fxServer
     case connectDiagnosis
     case serverSignIn
     case serverSelfUpdate
@@ -488,6 +491,18 @@ public enum CapabilityRegistry {
             id: .ompServer, area: "servers", title: "Oh My Pi servers",
             spec:
                 "A third server kind alongside opencode and Claude Code: omp-bridge (guitaripod/omp-bridge) drives oh-my-pi over the same wire protocol as claude-bridge, answers /status with agent \"omp\" on port 4099, authenticates as username \"omp\", and serves its own live model catalog at /models. The Kit probes, connects and streams against it unchanged; what each client owes is the road to choose it — a setup card or segment that names Oh My Pi, its icon and label in server rows, and install copy for the bridge."),
+        CapabilityDefinition(
+            id: .piServer, area: "servers", title: "pi servers",
+            spec:
+                "A server kind alongside opencode, Claude Code and Oh My Pi: the pi coding agent (earendil-works/pi-coding-agent) is served by a sibling bridge in the same shape as omp-bridge — same wire protocol as claude-bridge, answering /status with agent \"pi\" on port 4100, authenticating as username \"pi\". The Kit probes, connects and streams against it unchanged; what each client owes is the road to choose it — a setup card or segment that names pi, its icon and label in server rows, and install copy for the bridge."),
+        CapabilityDefinition(
+            id: .primeAgentServer, area: "servers", title: "Prime Agent servers",
+            spec:
+                "A server kind alongside opencode, Claude Code and Oh My Pi: the prime-agent harness is served by a sibling bridge in the same shape as omp-bridge — same wire protocol as claude-bridge, answering /status with agent \"prime-agent\" on port 4101, authenticating as username \"prime-agent\". The Kit probes, connects and streams against it unchanged; what each client owes is the road to choose it — a setup card or segment that names Prime Agent, its icon and label in server rows, and install copy for the bridge."),
+        CapabilityDefinition(
+            id: .fxServer, area: "servers", title: "fx servers",
+            spec:
+                "A server kind alongside opencode, Claude Code and Oh My Pi: the fx harness is served by a sibling bridge in the same shape as omp-bridge — same wire protocol as claude-bridge, answering /status with agent \"fx\" on port 4102, authenticating as username \"fx\". The Kit probes, connects and streams against it unchanged; what each client owes is the road to choose it — a setup card or segment that names fx, its icon and label in server rows, and install copy for the bridge."),
         CapabilityDefinition(
             id: .connectDiagnosis, area: "servers", title: "Failed probes name their cause",
             spec:
